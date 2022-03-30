@@ -1,7 +1,7 @@
-# Laboratorio de Computación III
+# Laboratorio de Computación III  
 Este repositorio contiene apuntes de HTML/CSS/JS y ejercicios realizados en la cursada de Laboratorio 3 de la UTN-FRA
 
-## Temas a ver en la cursada
+## Temas a ver en la cursada  
 * HTML/CSS
 * Javascript
 * AJAX
@@ -9,14 +9,14 @@ Este repositorio contiene apuntes de HTML/CSS/JS y ejercicios realizados en la c
 * Bootstrap
 * TypeScript
 
-## Recursos
+## Recursos  
 https://docs.emmet.io/cheat-sheet/
 
 https://developer.mozilla.org/
 
 ---
 
-### HTML/CSS
+### HTML/CSS  
 Etiquetas semánticas:  
 Son las etiquetas que tienen un significado
 
@@ -61,3 +61,7 @@ Estructura `<table>`
 
 #### Lectura Cliente-Servidor  
 Al peticionar las páginas web de internet, en principio nos trae el documento HTML y luego los recursos adicionales que requiere este archivo, que pueden ser el CSS, los scripts y otros assets
+
+### AJAX  
+JavaScript es un lenguaje Asincronico (no bloqueante) y con Concurrencia
+C# es Sincronico (bloqueante) e implementa Paralelismo (con hilos)
