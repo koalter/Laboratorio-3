@@ -1,0 +1,4 @@
+Ejercicio maquetado html en base a lo visto del lenguaje html intenten hacer el archivo.html que implemente la imagen inmobiliaria.png 
+en el archivo comprimido tienen las imágenes que se utilizan en la misma. 
+La solución esta en la segunda parte del video clase 4 en la carpeta compartida. 
+Les sugiero traten de hacerlo ustedes y después vean el video. Saludos
