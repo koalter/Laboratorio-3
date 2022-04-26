@@ -196,10 +196,18 @@ button:active {
 /* section media */
 .media {
     outline: 1px solid red;
+    height: 100vh;
+}
+
+.blog {
+    width: 59%;
+}
+
+.comentarios {
+    width: 40%;
 }
 
 .blog, .comentarios {
-    height: 100vh;
     display: inline-block;
     outline: 1px solid green;
 }
@@ -208,16 +216,14 @@ button:active {
     outline: 1px solid blue;
 }
 
-.blog article div {
-    display: inline-block;
-}
-
 .fotoBlog {
     width: 20%;
     outline: 1px solid black;
 }
 
 .descripcion {
+    width: 75%;
+    display: inline-block;
     outline: 1px solid red;
 }
 
