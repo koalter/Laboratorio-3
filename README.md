@@ -383,3 +383,156 @@ Similar al *for of*, con **for in** podemos recorrer los índices/propiedades de
     for (const key in persona) {
         console.log(persona[key]); // Output: el valor que contiene el índice 'key'
     }
+
+#### POO - función constructora
+
+JavaScript tiene una forma particular de crear nuevas clases sin definirlas explícitamente, al generar una función que sirva como constructora de dicha clase.
+
+La función en sí consiste en nombrarla como será el nombre de la clase, agregarle tantos parámetros como se deseen y asignando valores a un objeto interno this
+
+Ejemplo:
+
+    function Animal(tipo, edad, sexo, hambre) {
+        this.tipo = tipo;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.hambre = hambre;
+    }
+
+    const unAnimal = new Animal('perro', 2, 'm', false);
+
+    console.log(unAnimal); // Output: Animal { tipo: 'perro', edad: 2, sexo: 'm', hambre: false }
+
+#### POO - call()
+
+`call()` es un método de Object para llamar a una función interna de un objeto como si fuera otro.
+
+Dicho de otra forma, es la forma que tiene un objeto cualquiera de implementar sobre la marcha un método de otra entidad.
+
+    function Animal(tipo, edad, sexo, hambre) {
+        this.tipo = tipo;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.hambre = hambre;
+        this.saludar = function() {
+            console.log('Hola soy ' + this.tipo);
+        }
+    }
+
+    const unAnimal = new Animal('perro', 2, 'm', false);
+
+    const unaMascota = {
+        tipo: 'gato',
+        edad: 4
+    };
+
+    unAnimal.saludar(); // Output: Hola soy perro
+    unAnimal.saludar.call(unaMascota); // Output: Hola soy gato
+
+
+#### POO - apply()
+
+#### POO - bind()
+
+#### POO - getPrototypeOf()
+
+#### POO - Clases
+
+JavaScript igualmente implementa el sistema de Clases como en Java y C#, permitiendo estructurar de mejor manera nuestras entidades.
+
+    class Animal {
+        #hambre; // El uso del caracter numeral indica que es privado.
+
+        constructor(tipo, edad, sexo = 'i', hambre = false) {
+            this._sexo = sexo;
+            this.tipo = tipo;
+            this.edad = edad;
+            this.#hambre = hambre;
+        }
+
+        get Hambre() {
+            return this.#hambre;
+        }
+
+        set Hambre(value) {
+            if (value === true || value === false) {
+                this.#hambre = value;
+            }
+        }
+    }
+
+    const unAnimal = new Animal('gato', 4);
+
+    unAnimal.#hambre = 1; // Esta linea va a dar error porque JS lo interpreta como un atributo privado.
+
+    console.log(unAnimal.Hambre); // Output: false
+    unAnimal.Hambre = true;
+    console.log(unAnimal.Hambre); // Output: true
+
+#### POO - Herencia 
+
+JavaScript aplica el principio de Herencia de una manera similar a como lo hace Java.
+
+    class Animal {
+        constructor(tipo, edad, sexo = 'i', hambre = false) {
+            this.tipo = tipo;
+            this.edad = edad;
+            this.sexo = sexo;
+            this.hambre = hambre;
+        }
+    }
+
+    class Mascota extends Animal {
+        constructor(nombre, tipo, edad, sexo = 'i', hambre = false) {
+            super(tipo, edad, sexo, hambre);
+            this.nombre = nombre;
+        }
+    }
+
+    const unaMascota = new Mascota('Felix', 'gato', 3, 'f', false);
+
+    console.log(unaMascota); // Output: Mascota { tipo: 'gato', edad: 3, sexo: 'f', hambre: false, nombre: 'Felix' }
+
+### Desestructuración de objetos y arreglos
+
+### Módulos
+
+A partir de ES5 es posible incluir archivos JS en otros. Para realizar esto el archivo HTML iniciador debe llamar un script como lo hacemos siempre y agregar la propiedad type="module".
+
+Una vez hecho esto, podemos empezar a importar y exportar contenido de otros archivos JavaScript.
+
+*index.html*
+```
+<head>
+    <script src="./Mascota.js" type="module"></script>
+</head>
+```
+
+*Animal.js*
+```
+// Se puede declarar la exportación a la hora de definir el dato...
+export default class Animal {
+    constructor(tipo, edad, sexo = 'i', hambre = false) {
+        this.tipo = tipo;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.hambre = hambre;
+    }
+}
+```
+
+*Mascota.js*
+```
+import Animal from './Animal.js';
+
+class Mascota extends Animal {
+    constructor(nombre, tipo, edad, sexo = 'i', hambre = false) {
+        super(tipo, edad, sexo, hambre);
+        this.nombre = nombre;
+    }
+}
+
+export default Mascota; // ...o al final del documento
+```
+
+### DOM
