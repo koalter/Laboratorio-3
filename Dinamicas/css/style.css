@@ -1,0 +1,61 @@
+ul li {
+    text-transform: capitalize;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.colorPar {
+    background-color: gold;
+}
+
+.colorImpar {
+    background-color: blue;
+    color: gold;
+}
+
+.cabecera {
+    background-color: cornflowerblue;
+    color: brown;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+tr.colorImpar:hover, 
+tr.colorPar:hover {
+    background-color: darkblue;
+    color: yellow;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.container {
+    width: 90%;
+    background-color: gray;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.table-container {
+    width: 100%;
+}
