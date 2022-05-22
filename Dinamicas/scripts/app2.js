@@ -2,10 +2,10 @@ import { empleados } from "../data/datos.js";
 import crearTabla from "./tablaDinamica.js";
 import Empleado from "./empleado.js";
 
-console.log(empleados);
+console.log(localStorage);
 
 const localEmpleados = JSON.parse(localStorage.getItem("Empleados")) || empleados.concat();
-
+console.log(localEmpleados);
 const $frmEmpleado = document.forms[0];
 
 $frmEmpleado.addEventListener("submit", e => {
@@ -18,19 +18,20 @@ $frmEmpleado.addEventListener("submit", e => {
         Date.now(), 
         frm.nombre.value, 
         parseInt(frm.edad.value), 
-        frm.edad.value, 
-        frm.sexo.value
+        frm.email.value, 
+        frm.genero.value
     );
     
     localEmpleados.push(nuevoEmpleado);
 
-    localStorage.setItem("empleados", JSON.stringify(localEmpleados));
+    localStorage.setItem("Empleados", JSON.stringify(localEmpleados));
 
-    actualizarTabla(empleados);
+    actualizarTabla(localEmpleados);
 });
 
 function actualizarTabla(lista) {
-    
+    $tableContainer.childNodes[0].remove();
+    $tableContainer.appendChild(crearTabla(lista));
 }
 
 window.addEventListener("click", e => {
@@ -39,4 +40,5 @@ window.addEventListener("click", e => {
     }
 });
 
-document.querySelector(".table-container").appendChild(crearTabla(localEmpleados));
+const $tableContainer = document.querySelector(".table-container");
+$tableContainer.appendChild(crearTabla(localEmpleados));

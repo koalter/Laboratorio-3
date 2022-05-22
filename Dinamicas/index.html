@@ -16,8 +16,37 @@
         <main class="main">
             <section class="form-container">
                 <h2>Alta Empleados</h2>
-                <form>
-                    
+                <form id="frm_altaEmpleados">
+                    <div class="input">
+                        <label for="nombre">
+                            Nombre
+                        </label>
+                        <input type="text" name="nombre" id="nombre">
+                    </div>
+                    <div class="input">
+                        <label for="edad">
+                            Edad
+                        </label>
+                        <input type="text" name="edad" id="edad">
+                    </div>
+                    <div class="input">
+                        <label for="email">
+                            Email
+                        </label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <fieldset>
+                        <legend>Genero</legend>
+                        <label>
+                            Masculino
+                            <input type="radio" value="Masculino" name="genero"/>
+                        </label>
+                        <label>
+                            Femenino
+                            <input type="radio" value="Femenino" name="genero" />
+                        </label>
+                    </fieldset>
+                    <input type="submit" value="Cargar Usuario">
                 </form>
             </section>
             <section class="table-container"></section>

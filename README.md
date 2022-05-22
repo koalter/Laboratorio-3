@@ -155,11 +155,11 @@ Output:
         <legend>Genero</legend>
         <label>
             Masculino
-            <input type="radio" value="m" />
+            <input type="radio" value="m" name="genero" />
         </label>
         <label>
             Femenino
-            <input type="radio" value="f" />
+            <input type="radio" value="f" name="genero" />
         </label>
     </fieldset>
 

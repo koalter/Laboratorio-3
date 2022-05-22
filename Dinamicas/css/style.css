@@ -59,3 +59,15 @@ tr.colorPar:hover {
 .table-container {
     width: 100%;
 }
+
+.input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#frm_altaEmpleados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
