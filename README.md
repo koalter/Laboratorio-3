@@ -16,6 +16,8 @@ https://developer.mozilla.org/
 
 https://www.mockaroo.com/
 
+https://icons8.com/preloaders/
+
 ## Microdatos
 
 Ver https://www.schema.org/

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo Sincrónico</title>
+</head>
+<body>
+    
+    <script>
+        function sumar(a, b) {
+           return a + b;
+        }
+
+        function restar(a, b) {
+            return a - b;
+        }
+
+        function multiplicar(a, b) {
+            return a * b;
+        }
+
+        function cuadrado(a) {
+            return a * a;
+        }
+
+        function informar(resultado) {
+            console.log(resultado);
+        }
+        
+        // sumar 8 y 5, al resultado calcular el cuadrado, al cuadrado multiplicarlo
+        // por 10 y al resultado restarle 40 e informar por consola el resultado final
+        console.log("Inicio");
+
+        let suma = sumar(8, 5);
+        let potencia = cuadrado(suma);
+        let producto = multiplicar(potencia, 10);
+        let resta = restar(producto, 40);
+        informar(resta);
+
+        console.log("Fin");
+    </script>
+</body>
+</html>

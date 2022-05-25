@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo Asincronia Callbacks</title>
+</head>
+<body>
+    <script>
+        function sumar(a, b) {
+            return new Promise((res, rej) => {
+                let respuesta;
+                setTimeout(() => {
+                    if (typeof a !== "number" || typeof b !== "number") {
+                        rej("Parámetros inválidos para la suma");
+                    }
+                    respuesta = a + b;
+                    console.log("La suma es " + respuesta);
+                    res(respuesta);
+                }, 3000);    
+            });
+        }
+
+        function multiplicar(a, b) {
+            return new Promise((res, rej) => {
+                let respuesta;
+                setTimeout(() => {
+                    if (typeof a !== "number" || typeof b !== "number") {
+                        rej("Parámetros inválidos para la multiplicacion");
+                    }
+                    respuesta = a + b;
+                    console.log("La multiplicacion es " + respuesta);
+                    res(respuesta);
+                }, 3000);    
+            });
+        }
+
+        function cuadrado(a) {
+            return new Promise((res, rej) => {
+                let respuesta;
+                setTimeout(() => {
+                    if (typeof a !== "number" || typeof b !== "number") {
+                        rej("Parámetros inválidos para la potencia");
+                    }
+                    respuesta = a + b;
+                    console.log("La potencia es " + respuesta);
+                    res(respuesta);
+                }, 3000);    
+            });
+        }
+
+        function informar(rta) {
+            console.log("El resultado es " + rta);
+        }
+
+        // sumar 8 y 5, al resultado calcular el cuadrado, al cuadrado multiplicarlo
+        // por 10 y al resultado restarle 40 e informar por consola el resultado final
+        console.log("Inicio");
+        
+        sumar(8, 5)
+        .then(suma => cuadrado(suma))
+        .then(potencia => {
+            if (potencia < 170) {
+                return multiplicacion(potencia, 10)
+            }
+            return Promise.reject("cuadrado se pasó de 170");
+        })
+        .then(producto => restar(producto, 40))
+        .then(resta => informar(resta))
+        .catch(err => console.error(err));
+
+        console.log("Fin");
+    </script>
+</body>
+</html>

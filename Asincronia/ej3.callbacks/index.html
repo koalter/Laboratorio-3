@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo Asincronia Callbacks</title>
+</head>
+<body>
+    <script>
+        function sumar(a, b, callback) {
+            let respuesta;
+            setTimeout(() => {
+                respuesta = a + b;
+                console.log("La suma es " + respuesta);
+
+                callback(respuesta);
+            }, 3000);
+        }
+        
+        function sumarOptimizado(a, b, callback) {
+            let respuesta;
+            setTimeout(() => {
+                try {
+                    if (typeof a !== "number" || typeof b !== "number" || typeof callback !== "function") {
+                        throw Error("Parametros invalidos para la suma");
+                    }
+                    respuesta = a + b;
+                    console.log("La suma es " + respuesta);
+                    callback(respuesta);
+                } catch (err) {
+                    console.error(err.message);
+                }
+
+            }, 3000);
+        }
+        
+        function restar(a, b, callback) {
+            let respuesta;
+            setTimeout(() => {
+                respuesta = a - b;
+                console.log("La resta es " + respuesta);
+                callback(respuesta);
+            }, 2000);
+        }
+
+        function restarOptimizado(a, b, callback) {
+            let respuesta;
+            setTimeout(() => {
+                try {
+                    if (typeof a !== "number" || typeof b !== "number" || typeof callback !== "function") {
+                        throw Error("Parametros invalidos para la resta");
+                    }
+                    respuesta = a - b;
+                    console.log("La resta es " + respuesta);
+                    callback(respuesta);
+                } catch (err) {
+                    console.error(err.message);
+                }
+            }, 2000);
+        }
+
+        function multiplicar(a, b, callback) {
+            let respuesta;
+            setTimeout(() => {
+                respuesta = a * b;
+                console.log("El producto es " + respuesta);
+                callback(respuesta);
+            }, 1000);
+        }
+
+        function multiplicarOptimizado(a, b, callback) {
+            let respuesta;
+            setTimeout(() => {
+                try {
+                    if (typeof a !== "number" || typeof b !== "number" || typeof callback !== "function") {
+                        throw Error("Parametros invalidos para la multiplicacion");
+                    }
+
+                    respuesta = a * b;
+                    console.log("El producto es " + respuesta);
+                    callback(respuesta);
+                } catch (err) {
+                    console.error(err.message);
+                }
+            }, 1000);
+        }
+
+        function cuadrado(a, callback) {
+            let respuesta;
+            setTimeout(() => {
+                respuesta = a * a;
+                console.log("La potencia es " + respuesta);
+                callback(respuesta);
+            }, 3000);
+        }
+
+        function cuadradoOptimizado(a, callback) {
+            let respuesta;
+            setTimeout(() => {
+                try {
+                    if (typeof a !== "number" || typeof callback !== "function") {
+                        throw Error("Parametros invalidos para la potencia");
+                    }
+
+                    respuesta = a * a;
+                    console.log("La potencia es " + respuesta);
+                    callback(respuesta);
+                } catch (err) {
+                    console.error(err.message);
+                }
+            }, 3000);
+        }
+
+        function informar(rta) {
+            console.log("El resultado es " + rta);
+        }
+
+        // sumar 8 y 5, al resultado calcular el cuadrado, al cuadrado multiplicarlo
+        // por 10 y al resultado restarle 40 e informar por consola el resultado final
+        console.log("Inicio");
+        let bug = false;
+        if (bug) {
+            // Esto genera un bug
+            sumar("8", 5, suma => {
+                cuadrado(suma, cuad => {
+                    multiplicar(cuad, 10, producto => {
+                        restar(producto, 40, resta => {
+                            informar(resta);
+                        });
+                    });
+                });
+            });
+        } else {
+            // Esto atrapa la falla
+            sumarOptimizado("8", 5, suma => {
+                cuadradoOptimizado(suma, cuad => {
+                    multiplicarOptimizado(cuad, 10, producto => {
+                        restarOptimizado(producto, 40, resta => {
+                            informar(resta);
+                        });
+                    });
+                });
+            });
+        }
+
+
+        console.log("Fin");
+    </script>
+</body>
+</html>
