@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+    background-color: antiquewhite;
+}
+
+main {
+    text-align: center;
+}
+
+#frm_altaAnuncios {
+    width: 30%;
+    margin: auto;
+    text-align: left;
+    font-family: 'Montserrat';
+}
+
+fieldset {
+    background-color: white;
+}
+
+.input label {
+    display: block;
+}
+
+input {
+    width: 100%;
+    border-radius: 0.8em;
+    background-color: gainsboro;
+    border: none;
+    padding: 0.3em;
+}
+
+#listado {
+    width: 60%;
+    /* outline: 1px solid red; */
+    margin: auto;
+    border-top: 1px solid black;
+}
+
+button {
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    border: none;
+    border-radius: 1em;
+}
+
+button:active {
+    filter: brightness(80%);
+}
+
+#btn_form, #btn_editar {
+    background-color: limegreen;
+}
+
+#btn_eliminar {
+    background-color: crimson;
+}
+
+#btn_cancelar {
+    background-color: dodgerblue;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+tr:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+#spinner {
+    margin: auto;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+thead {
+    background-color: lightseagreen;
+}
+
+.colorPar {
+    background-color: lightseagreen;
+}
+
+.colorImpar {
+    background-color: lightblue;
+}
