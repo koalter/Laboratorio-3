@@ -18,6 +18,8 @@ https://www.mockaroo.com/
 
 https://icons8.com/preloaders/
 
+https://jsonplaceholder.typicode.com/
+
 ## Microdatos
 
 Ver https://www.schema.org/

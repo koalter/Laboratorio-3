@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Peticiones sincrónicas</legend>
+        <button id="btnGetPersonasAjax">Traer Personas ajax</button>
+        <button id="btnGetPersonasFetch">Traer Personas fetch</button>
+        <button id="btnGetPersonasAxios">Traer Personas axios</button>
+        <button id="btnGetPersonasAjaxPromise">Traer Personas ajax Promise</button>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Peticiones sincrónicas (parametrizada)</legend>
+        <button id="btnGetPersonaAjax">Traer Persona ajax</button>
+        <button id="btnGetPersonaFetch">Traer Persona fetch</button>
+        <button id="btnGetPersonaAxios">Traer Persona axios</button>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Peticiones asincrónicas</legend>
+        <button id="btnGetPersonasAjaxPromiseAsync">Traer Personas ajax Promise Async</button>
+        <button id="btnGetPersonasFetchAsync">Traer Personas fetch Async</button>
+        <button id="btnGetPersonasAxiosAsync">Traer Personas axios Async</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>Petitiones por POST</legend>
+        <button id="btnGetPersonasAjaxPost">Traer Personas ajax POST</button>
+        <button id="btnGetPersonasFetchPost">Traer Personas fetch POST</button>
+        <button id="btnGetPersonasAxiosPost">Traer Personas axios POST</button>
+    </fieldset>
+    <form action="http://localhost:3000/personas">
+        <input type="text" name="nombre" placeholder="nombre">
+        <input type="submit" value="GetPersonasForm">
+    </form>
+    <div class="spinner"></div>
+</body>
+</html>
